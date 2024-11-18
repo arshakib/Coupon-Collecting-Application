@@ -1,0 +1,143 @@
+import { useContext } from "react";
+import { FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../../Context/Context";
+import { useNavigate } from "react-router-dom";
+
+const Register = () => {
+  const { Reg, google } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handelLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    Reg(email, password)
+      .then((result) => {
+        const user = result.user;
+        navigate(location?.state ? location.state : "/");
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  };
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+        {/* Register Title */}
+        <h2 className="text-3xl font-bold text-center mb-6">Register</h2>
+
+        {/* Register Form */}
+        <form onClick={handelLogin} className="space-y-4">
+          {/* Name Field */}
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              Name
+            </label>
+            <input
+              name="name"
+              type="text"
+              id="name"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+
+          {/* Email Field */}
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              Email
+            </label>
+            <input
+              name="email"
+              type="email"
+              id="email"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          {/* Photo URL Field */}
+          <div>
+            <label
+              htmlFor="photo"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              Photo URL
+            </label>
+            <input
+              name="photo"
+              type="url"
+              id="photo"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your photo URL"
+              required
+            />
+          </div>
+
+          {/* Password Field */}
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              Password
+            </label>
+            <input
+              name="password"
+              type="password"
+              id="password"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          {/* Register Button */}
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300"
+          >
+            Register
+          </button>
+        </form>
+
+        {/* Divider */}
+        <div className="my-6 flex items-center">
+          <hr className="flex-grow border-gray-300" />
+          <span className="px-4 text-gray-500">OR</span>
+          <hr className="flex-grow border-gray-300" />
+        </div>
+
+        {/* Google Login Button */}
+        <button
+          onClick={google}
+          className="w-full flex items-center justify-center bg-red-500 text-white font-bold py-2 px-4 rounded-md hover:bg-red-600 transition duration-300"
+        >
+          <FaGoogle className="mr-2" />
+          Sign up with Google
+        </button>
+
+        {/* Login Link */}
+        <p className="text-center mt-6">
+          Already have an account?{" "}
+          <a href="/login" className="text-blue-500 hover:underline">
+            Login here
+          </a>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Register;

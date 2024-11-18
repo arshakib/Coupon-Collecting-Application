@@ -1,0 +1,161 @@
+[
+  {
+    "_id": "1a2b3c4d5e",
+    "brand_name": "TechGear",
+    "rating": 4.7,
+    "description": "Leading brand for tech accessories and gadgets.",
+    "brand_logo": "https://png.pngtree.com/png-clipart/20211128/original/pngtree-logo-for-tech-gear-png-image_6954677.png",
+    "coupons": [
+      {
+        "coupon_code": "TECH20",
+        "description": "Get 20% off on all tech accessories.",
+        "expiry_date": "2024-12-31",
+        "condition": "Valid for online purchases only.",
+        "coupon_type": "Discount"
+      }
+    ],
+    "shop_link": "https://techgear.com",
+    "category": "Electronics",
+    "isSaleOn": true
+  },
+  {
+    "_id": "2f3g4h5i6j",
+    "brand_name": "StyleHub",
+    "rating": 4.3,
+    "description": "Your go-to brand for trendy fashion and apparel.",
+    "brand_logo": "https://r2.erweima.ai/imgcompressed/img/compressed_5902c3f01c363b476ac31abeaf239183.webp",
+    "coupons": [
+      {
+        "coupon_code": "STYLE15",
+        "description": "Save 15% on your first order.",
+        "expiry_date": "2024-12-15",
+        "condition": "New customers only.",
+        "coupon_type": "Discount"
+      }
+    ],
+    "shop_link": "https://stylehub.com",
+    "category": "Fashion",
+    "isSaleOn": false
+  },
+  {
+    "_id": "3k4l5m6n7o",
+    "brand_name": "HomeDelight",
+    "rating": 4.8,
+    "description": "Premium home decor and furniture.",
+    "brand_logo": "https://ilumitecsa.com/cdn/shop/collections/208567959713.jpg?v=1701928364",
+    "coupons": [
+      {
+        "coupon_code": "HOME25",
+        "description": "25% off on home decor items.",
+        "expiry_date": "2024-12-05",
+        "condition": "Minimum purchase of $100 required.",
+        "coupon_type": "Discount"
+      }
+    ],
+    "shop_link": "https://homedelight.com",
+    "category": "Home & Living",
+    "isSaleOn": true
+  },
+  {
+    "_id": "4p5q6r7s8t",
+    "brand_name": "FitnessPro",
+    "rating": 4.5,
+    "description": "Top-rated brand for fitness gear and supplements.",
+    "brand_logo": "https://static1.squarespace.com/static/5ae9ed81f2e6b12c7956147a/t/5bd4d2c1c830255a54bc7967/1725843343854/",
+    "coupons": [
+      {
+        "coupon_code": "FIT10",
+        "description": "10% off on all supplements.",
+        "expiry_date": "2025-01-15",
+        "condition": "Valid on all supplement categories.",
+        "coupon_type": "Discount"
+      }
+    ],
+    "shop_link": "https://fitnesspro.com",
+    "category": "Health & Fitness",
+    "isSaleOn": false
+  },
+  {
+    "_id": "5u6v7w8x9y",
+    "brand_name": "GourmetDelights",
+    "rating": 4.9,
+    "description": "Exclusive brand for gourmet food and beverages.",
+    "brand_logo": "https://r2.erweima.ai/imgcompressed/compressed_59ce7f84e720eb672072d19179461142.webp",
+    "coupons": [
+      {
+        "coupon_code": "FOODIE25",
+        "description": "Get 25% off on gourmet items.",
+        "expiry_date": "2024-12-25",
+        "condition": "Excludes alcoholic beverages.",
+        "coupon_type": "Discount"
+      },
+      {
+        "coupon_code": "FOODIE55",
+        "description": "Get 55% off on gourmet items.",
+        "expiry_date": "2024-12-31",
+        "condition": "Excludes alcoholic beverages.",
+        "coupon_type": "Discount"
+      }
+    ],
+    "shop_link": "https://gourmetdelights.com",
+    "category": "Food & Beverages",
+    "isSaleOn": true
+  },
+  {
+    "_id": "6a7b8c9d0e",
+    "brand_name": "EcoWear",
+    "rating": 4.6,
+    "description": "Sustainable fashion for everyone.",
+    "brand_logo": "https://cdn2.f-cdn.com/contestentries/2374357/49068282/65e43f9e31cdf_thumb900.jpg",
+    "coupons": [
+      {
+        "coupon_code": "ECO10",
+        "description": "10% off on eco-friendly clothing.",
+        "expiry_date": "2024-11-30",
+        "condition": "Online orders only.",
+        "coupon_type": "Discount"
+      }
+    ],
+    "shop_link": "https://ecowear.com",
+    "category": "Fashion",
+    "isSaleOn": true
+  },
+  {
+    "_id": "7f8g9h0i1j",
+    "brand_name": "BookNook",
+    "rating": 4.4,
+    "description": "Your online bookstore for all genres.",
+    "brand_logo": "https://www.shutterstock.com/image-photo/book-nook-logo-rainbow-gold-260nw-2491358867.jpg",
+    "coupons": [
+      {
+        "coupon_code": "READMORE",
+        "description": "Buy 2 Get 1 Free on selected titles.",
+        "expiry_date": "2024-12-20",
+        "condition": "Limited to selected books.",
+        "coupon_type": "BOGO"
+      }
+    ],
+    "shop_link": "https://booknook.com",
+    "category": "Books",
+    "isSaleOn": false
+  },
+  {
+    "_id": "8k9l0m1n2o",
+    "brand_name": "PetPalace",
+    "rating": 4.7,
+    "description": "Quality products for your pets.",
+    "brand_logo": "https://classicshowjumps.b-cdn.net/wp-content/uploads/2023/09/343425503_612945867419267_910505971163323_n.jpg",
+    "coupons": [
+      {
+        "coupon_code": "PETLOVE",
+        "description": "20% off on pet food.",
+        "expiry_date": "2024-12-10",
+        "condition": "Minimum order of $30.",
+        "coupon_type": "Discount"
+      }
+    ],
+    "shop_link": "https://petpalace.com",
+    "category": "Pet Supplies",
+    "isSaleOn": true
+  }
+]

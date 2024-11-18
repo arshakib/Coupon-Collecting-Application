@@ -1,8 +1,12 @@
+import { NavLink } from "react-router-dom";
+
 const Nav = () => {
   return (
     <div>
       <div className="navbar bg-neutral text-neutral-content">
-        <button className="btn btn-ghost text-xl mx-auto">daisyUI</button>
+        <button className="btn btn-ghost text-xl mx-auto text-white">
+          Welcome
+        </button>
       </div>
 
       <div className="navbar bg-base-100 w-10/12 mx-auto">
@@ -29,11 +33,11 @@ const Nav = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Item 1</a>
+                <NavLink to="/">Home</NavLink>
               </li>
 
               <li>
-                <a>Item 3</a>
+                <NavLink to="/brands">Brand</NavLink>
               </li>
             </ul>
           </div>
@@ -42,11 +46,11 @@ const Nav = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Item 1</a>
+              <NavLink to="/">Home</NavLink>
             </li>
 
             <li>
-              <a>Item 3</a>
+              <NavLink to="/brands">Brand</NavLink>
             </li>
           </ul>
         </div>
@@ -76,7 +80,7 @@ const Nav = () => {
                 </a>
               </li>
               <li>
-                <a>Logout</a>
+                <a>LogIn</a>
               </li>
             </ul>
           </div>
