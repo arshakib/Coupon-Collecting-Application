@@ -3,11 +3,11 @@ const Card = (data) => {
   return (
     <div className="w-10/12 mx-auto">
       <div>
-        <h1 className="text-3xl font-bold text-center mb-8 mt-16">
+        <h1 className="lg:text-3xl sm:text-2xl font-bold text-center mb-8 mt-16">
           The Best Coupons, Promo Codes & Cash Back Offers
         </h1>
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-4">
         {Api.map(
           (item) =>
             // eslint-disable-next-line react/jsx-key

@@ -5,13 +5,17 @@ const MarqueeLogo = (data) => {
   console.log(Api);
   return (
     <div className="mt-16">
-      <h1 className="text-2xl font-bold text-center mb-8">
+      <h1 className="lg:text-2xl sm:text-xl font-bold text-center mb-8">
         Top Brands That You Are Looking For
       </h1>
       <Marquee pauseOnHover={true}>
         {Api.map((item) => (
           // eslint-disable-next-line react/jsx-key
-          <img className="w-20 h-20 mr-40" src={item.brand_logo} alt="" />
+          <img
+            className="w-20 h-20 lg:mr-40 sm:mr-20"
+            src={item.brand_logo}
+            alt=""
+          />
         ))}
       </Marquee>
     </div>

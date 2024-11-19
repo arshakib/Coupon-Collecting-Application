@@ -71,7 +71,10 @@ const Nav = () => {
               <button onClick={logout} className="btn mr-4">
                 LogOut
               </button>
-              <p className="btn mr-4">{user?.email}</p>
+              <div className="lg:block sm:hidden">
+                <p className="btn mr-4 ">{user?.email}</p>
+              </div>
+
               <div className="dropdown dropdown-end">
                 <div
                   tabIndex={0}
