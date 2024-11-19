@@ -18,6 +18,12 @@ const Footer = () => {
             Ashiqur Rahman Shakib.
             <br />
             Built with React & The dev is Ashiqur Rahman Shakib
+            <br />
+            <a href="https://github.com/arshakib">Visit My GitHub</a>
+            <br />
+            <a href="https://www.linkedin.com/in/ashiqur-rahman-shakib/">
+              Visit My LinkedIn
+            </a>
           </p>
         </aside>
         <nav>
