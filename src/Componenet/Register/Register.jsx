@@ -12,6 +12,8 @@ const Register = () => {
     event.preventDefault();
     console.log(event.target);
     const form = event.target;
+    const name = form.name.value;
+    const photoURL = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
     if (password.length < 6) {
@@ -43,11 +45,10 @@ const Register = () => {
       return;
     }
 
-    Reg(email, password)
+    Reg(email, password, name, photoURL)
+      // eslint-disable-next-line no-unused-vars
       .then((result) => {
-        const user = result.user;
         navigate("/");
-        console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;

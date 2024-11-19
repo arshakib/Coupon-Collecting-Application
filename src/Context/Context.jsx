@@ -28,8 +28,12 @@ const Context = ({ children }) => {
         console.log(error);
       });
   };
-  const Reg = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+  const Reg = async (email, password, name, Photo) => {
+    await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: Photo,
+    });
   };
 
   const login = (email, password) => {
