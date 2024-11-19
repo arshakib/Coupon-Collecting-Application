@@ -13,6 +13,8 @@ import Register from "./Componenet/Register/Register.jsx";
 import Profile from "./Componenet/Profile/Profile.jsx";
 import Private from "./Private/Private.jsx";
 import Forgot from "./Componenet/Forgot/Forgot.jsx";
+import Update from "./Componenet/Update/Update.jsx";
+import Error from "./ErrorPgae/Error.jsx";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +72,14 @@ const router = createBrowserRouter([
       {
         path: "/forgot",
         element: <Forgot></Forgot>,
+      },
+      {
+        path: "/update",
+        element: <Update></Update>,
+      },
+      {
+        path: "*",
+        element: <Error></Error>,
       },
     ],
   },

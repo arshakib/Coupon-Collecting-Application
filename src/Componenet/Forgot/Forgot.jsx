@@ -3,7 +3,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../../Context/Context";
 
 const Forgot = () => {
-  const { user, reset } = useContext(AuthContext);
+  const { user, reset, logout } = useContext(AuthContext);
   const value = user?.email;
   console.log(value);
 
@@ -15,6 +15,7 @@ const Forgot = () => {
       // eslint-disable-next-line no-unused-vars
       .then((result) => {
         window.open("https://mail.google.com/", "_blank");
+        logout();
       })
       .catch((error) => {
         const errorCode = error.code;

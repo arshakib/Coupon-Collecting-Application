@@ -26,22 +26,22 @@ const Register = () => {
       });
       return;
     }
-    // const regex = /^(?=.*[A-Z])(?=.*[a-z]).*$/;
-    // if (!regex.test(password)) {
-    //   toast.error(
-    //     "Password must contain at least one uppercase letter and one lowercase letter",
-    //     {
-    //       position: "top-right",
-    //       autoClose: 2000,
-    //       hideProgressBar: false,
-    //       closeOnClick: true,
-    //       pauseOnHover: true,
-    //       draggable: true,
-    //       progress: undefined,
-    //     }
-    //   );
-    //   return;
-    // }
+    const regex = /^(?=.*[A-Z])(?=.*[a-z]).*$/;
+    if (!regex.test(password)) {
+      toast.error(
+        "Password must contain at least one uppercase letter and one lowercase letter",
+        {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      );
+      return;
+    }
 
     Reg(email, password)
       .then((result) => {

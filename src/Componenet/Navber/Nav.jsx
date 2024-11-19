@@ -1,11 +1,16 @@
 import { NavLink } from "react-router-dom";
+import "animate.css";
+import { AuthContext } from "../../Context/Context";
+import { useContext } from "react";
+import logo from "../../assets/logo.jpg";
 
 const Nav = () => {
+  const { user, logout } = useContext(AuthContext);
   return (
-    <div>
-      <div className="navbar bg-neutral text-neutral-content">
+    <div className=" ">
+      <div className=" animate__animated animate__bounce animate__bounce navbar bg-neutral text-neutral-content">
         <button className="btn btn-ghost text-xl mx-auto text-white">
-          Welcome
+          Welcome {user?.displayName}
         </button>
       </div>
 
@@ -39,9 +44,12 @@ const Nav = () => {
               <li>
                 <NavLink to="/brands">Brand</NavLink>
               </li>
+              <li>
+                <NavLink to="/profile">Profile</NavLink>
+              </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <img className="w-28 h-28" src={logo} alt="" />
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -52,38 +60,35 @@ const Nav = () => {
             <li>
               <NavLink to="/brands">Brand</NavLink>
             </li>
+            <li>
+              <NavLink to="/profile">Profile</NavLink>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn mr-4">Button</a>
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
+          {user ? (
+            <>
+              <button onClick={logout} className="btn mr-4">
+                LogOut
+              </button>
+              <p className="btn mr-4">{user?.email}</p>
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="">
+                    <img src={user?.photoURL} />
+                  </div>
+                </div>
               </div>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>LogIn</a>
-              </li>
-            </ul>
-          </div>
+            </>
+          ) : (
+            <NavLink className="btn mr-4" to="/login">
+              Login
+            </NavLink>
+          )}
         </div>
       </div>
     </div>

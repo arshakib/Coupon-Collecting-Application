@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Context/Context";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
@@ -39,13 +40,19 @@ const Profile = () => {
             </div>
 
             {/* Update Button */}
-            <div className="mt-6">
-              <button
-                onClick={() => console.log("Update button clicked")}
-                className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
+            <div className="mt-6 flex justify-between">
+              <Link
+                to="/update"
+                className="l bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
               >
                 Update
-              </button>
+              </Link>
+              <Link
+                to="/forgot"
+                className=" bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
+              >
+                Change Password
+              </Link>
             </div>
           </div>
         </div>
