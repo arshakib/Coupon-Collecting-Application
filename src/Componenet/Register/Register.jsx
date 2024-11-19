@@ -2,35 +2,78 @@ import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Context/Context";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
   const { Reg, google } = useContext(AuthContext);
   const navigate = useNavigate();
+
   const handelLogin = (event) => {
     event.preventDefault();
+    console.log(event.target);
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
+    // const regex = /^(?=.*[A-Z])(?=.*[a-z]).*$/;
+    // if (!regex.test(password)) {
+    //   toast.error(
+    //     "Password must contain at least one uppercase letter and one lowercase letter",
+    //     {
+    //       position: "top-right",
+    //       autoClose: 2000,
+    //       hideProgressBar: false,
+    //       closeOnClick: true,
+    //       pauseOnHover: true,
+    //       draggable: true,
+    //       progress: undefined,
+    //     }
+    //   );
+    //   return;
+    // }
+
     Reg(email, password)
       .then((result) => {
         const user = result.user;
-        navigate(location?.state ? location.state : "/");
+        navigate("/");
         console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        toast.error(errorMessage, errorCode, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         console.log(errorCode, errorMessage);
       });
   };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <ToastContainer />
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
         {/* Register Title */}
         <h2 className="text-3xl font-bold text-center mb-6">Register</h2>
 
         {/* Register Form */}
-        <form onClick={handelLogin} className="space-y-4">
+        <form onSubmit={handelLogin} className="space-y-4">
           {/* Name Field */}
           <div>
             <label

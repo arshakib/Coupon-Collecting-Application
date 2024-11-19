@@ -1,13 +1,14 @@
-import { useContext } from "react";
-import { FaGoogle } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Context/Context";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import { ToastContainer, toast } from "react-toastify";
 const Login = () => {
   const { login, google } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   console.log(location);
+  const [showPassword, setShowPassword] = useState(false);
   const handelLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -22,6 +23,15 @@ const Login = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        toast.error(errorMessage, errorCode, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         console.log(errorCode, errorMessage);
       });
   };
@@ -29,6 +39,7 @@ const Login = () => {
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <ToastContainer />
         <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
           {/* Login Title */}
           <h2 className="text-3xl font-bold text-center mb-6">Login</h2>
@@ -54,7 +65,7 @@ const Login = () => {
             </div>
 
             {/* Password Field */}
-            <div>
+            <div className="relative">
               <label
                 htmlFor="password"
                 className="block text-gray-700 font-medium mb-2"
@@ -63,12 +74,18 @@ const Login = () => {
               </label>
               <input
                 name="password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 id="password"
                 className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter your password"
                 required
               />
+              <button
+                onClick={() => setShowPassword(!showPassword)}
+                className=" btn btn-xs absolute right-4 top-[53px] transform -translate-y-1/2"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
             </div>
 
             {/* Forget Password Link */}
@@ -99,7 +116,12 @@ const Login = () => {
 
           {/* Google Login Button */}
           <button
-            onClick={google}
+            onClick={() =>
+              // eslint-disable-next-line no-unused-vars
+              google().then((result) => {
+                navigate(location?.state ? location.state : "/");
+              })
+            }
             className="w-full flex items-center justify-center bg-red-500 text-white font-bold py-2 px-4 rounded-md hover:bg-red-600 transition duration-300"
           >
             <FaGoogle className="mr-2" />

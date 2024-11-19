@@ -10,6 +10,9 @@ import Brands from "./Componenet/Brands/Brands.jsx";
 import Details from "./Componenet/Details/Details.jsx";
 import Login from "./Componenet/Login/Login.jsx";
 import Register from "./Componenet/Register/Register.jsx";
+import Profile from "./Componenet/Profile/Profile.jsx";
+import Private from "./Private/Private.jsx";
+import Forgot from "./Componenet/Forgot/Forgot.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +39,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/brands/:id",
-        element: <Details></Details>,
+        element: (
+          <Private>
+            <Details></Details>
+          </Private>
+        ),
         loader: async ({ params }) => {
           const res = await fetch("/Api.json");
           const data = await res.json();
@@ -51,6 +58,18 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/profile",
+        element: (
+          <Private>
+            <Profile></Profile>
+          </Private>
+        ),
+      },
+      {
+        path: "/forgot",
+        element: <Forgot></Forgot>,
       },
     ],
   },

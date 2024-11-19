@@ -8,6 +8,8 @@ import {
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
+  sendPasswordResetEmail,
+  updateProfile,
 } from "firebase/auth";
 export const AuthContext = createContext(null);
 // eslint-disable-next-line react/prop-types
@@ -38,6 +40,17 @@ const Context = ({ children }) => {
     return signOut(auth);
   };
 
+  const reset = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
+
+  const update = (name, url) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: url,
+    });
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -54,6 +67,8 @@ const Context = ({ children }) => {
     loading,
     logout,
     google,
+    reset,
+    update,
   };
   return <AuthContext.Provider value={object}>{children}</AuthContext.Provider>;
 };
