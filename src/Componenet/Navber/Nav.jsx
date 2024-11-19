@@ -71,7 +71,7 @@ const Nav = () => {
               <button onClick={logout} className="btn mr-4">
                 LogOut
               </button>
-              <div className="lg:block sm:hidden">
+              <div className="dropdown dropdown-end hidden lg:block">
                 <p className="btn mr-4 ">{user?.email}</p>
               </div>
 
