@@ -5,9 +5,7 @@ Discount PRO is a user-friendly application designed to simplify coupon collecti
 
 ## **Live URL**
 
-[Live Application URL](#) _(Replace with the hosted application link)_
-
----
+## [Live Application URL](https://arshakib.netlify.app/)
 
 ## **Key Features**
 
