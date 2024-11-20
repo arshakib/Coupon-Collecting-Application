@@ -81,8 +81,12 @@ const Nav = () => {
                   role="button"
                   className="btn btn-ghost btn-circle avatar"
                 >
-                  <div className="">
-                    <img src={user?.photoURL} />
+                  <div>
+                    <img
+                      src={user?.photoURL}
+                      alt="User Photo"
+                      className="w-24 h-24 rounded-full object-cover"
+                    />
                   </div>
                 </div>
               </div>
